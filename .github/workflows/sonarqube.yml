@@ -27,6 +27,6 @@ jobs:
       - name: SonarQube Scan
         uses: SonarSource/sonarqube-scan-action@master
         with:
-          args: -Dproject.settings=laboratorio-adk-ucv/sonar-project.properties
+             projectBaseDir: laboratorio-adk-ucv
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
