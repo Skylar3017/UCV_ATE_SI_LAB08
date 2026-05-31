@@ -24,9 +24,13 @@ jobs:
         working-directory: laboratorio-adk-ucv
         run: poetry install
 
+      - name: Run tests and coverage
+        working-directory: laboratorio-adk-ucv
+        run: poetry run pytest --cov=agente_ucv --cov-report=xml
+
       - name: SonarQube Scan
         uses: SonarSource/sonarqube-scan-action@master
         with:
-             projectBaseDir: laboratorio-adk-ucv
+          projectBaseDir: laboratorio-adk-ucv
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
